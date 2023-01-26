@@ -6,7 +6,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #e3dfda;
+  background: #49a69b;
+  background-image: url(./images/fon.jpg);
+  background-size: cover;
+  margin: 0;
 }
 
 h1,

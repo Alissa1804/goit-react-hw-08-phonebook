@@ -9,7 +9,7 @@ export const Item = styled.li`
   color: #cebdab;
   font-weight: 200;
   font-size: 20px;
-  border-bottom: 1px solid #bdd4f1;
+  border-bottom: 2px solid #47aba1; ;
 `;
 
 export const List = styled.ul`

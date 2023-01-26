@@ -1,12 +1,12 @@
 import { useDispatch } from 'react-redux';
-import { updateContact } from 'redux/contacts/contacts-operations';
+import { updateContact } from '../../redux/contacts/contacts-operations';
 import { useState } from 'react';
 import Notiflix from 'notiflix';
-import { Input, Button, Form } from './UpdateForm.styled';
+import { Input, Button, Form, Label } from './UpdateForm.styled';
 
 export const UpdateForm = ({ closeForm, contactToUpdate }) => {
   const [name, setName] = useState(contactToUpdate.name);
-  const [phone, setPhone] = useState(contactToUpdate.phone);
+  const [number, setNumber] = useState(contactToUpdate.number);
 
   const dispatch = useDispatch();
 
@@ -15,8 +15,8 @@ export const UpdateForm = ({ closeForm, contactToUpdate }) => {
       case 'name':
         setName(value);
         break;
-      case 'phone':
-        setPhone(value);
+      case 'number':
+        setNumber(value);
         break;
       default:
         break;
@@ -29,7 +29,7 @@ export const UpdateForm = ({ closeForm, contactToUpdate }) => {
       updateContact({
         ...contactToUpdate,
         name,
-        phone,
+        number,
       })
     );
     closeForm();
@@ -37,14 +37,19 @@ export const UpdateForm = ({ closeForm, contactToUpdate }) => {
 
   return (
     <Form onSubmit={handleSubmit}>
-      <label>
+      <Label>
         Name:
         <Input type="text" name="name" value={name} onChange={handleChange} />
-      </label>
-      <label>
+      </Label>
+      <Label>
         Number:
-        <Input type="tel" name="phone" value={phone} onChange={handleChange} />
-      </label>
+        <Input
+          type="tel"
+          name="number"
+          value={number}
+          onChange={handleChange}
+        />
+      </Label>
       <Button
         onClick={() => {
           Notiflix.Notify.info(`Contact with name ${name} was edited`);

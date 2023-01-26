@@ -1,20 +1,18 @@
 import styled from 'styled-components';
 
-export const Label = styled.label`
-  font-weight: 200;
-  font-family: 'Oleo Script Swash Caps', cursive;
-  font-size: 26px;
-  color: #252525;
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-`;
-
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
   gap: 10px;
-  align-items: center;
+`;
+
+export const Label = styled.label`
+  font-family: 'Oleo Script Swash Caps', cursive;
+  font-size: 40px;
+  color: #252525;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
 `;
 
 export const Input = styled.input`
@@ -36,7 +34,7 @@ export const Input = styled.input`
 export const Button = styled.button`
   color: #252525;
   font-family: 'Oleo Script Swash Caps', cursive;
-  font-size: 22px;
+  font-size: 26px;
   cursor: pointer;
   background: #47aba1;
   border-radius: 5px;

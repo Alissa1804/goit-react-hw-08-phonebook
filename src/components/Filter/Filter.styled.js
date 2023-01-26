@@ -2,8 +2,9 @@ import styled from 'styled-components';
 
 export const Label = styled.label`
   font-weight: 200;
-  font-size: 22px;
-  color: #e7effa;
+  font-family: 'Oleo Script Swash Caps', cursive;
+  font-size: 26px;
+  color: #252525;
   display: flex;
   flex-direction: column;
   gap: 3px;
@@ -11,14 +12,16 @@ export const Label = styled.label`
 
 export const Input = styled.input`
   font-family: inherit;
-  font-weight: 200;
-  font-size: 22px;
+  font-weight: 400;
+  font-size: 20px;
   width: 400px;
-  background-color: transparent;
-  border: 1px solid #bdd4f1;
-  color: #bdd4f1;
-  padding: 3px;
+  background-color: #9bded5;
+  border: 2px solid #47aba1;
+  border-radius: 5px;
+  color: #252525;
+  padding: 5px;
+  font-family: 'Readex Pro', sans-serif;
   &:focus {
-    outline: 1px solid #bdd4f1;
+    outline: 2px solid #47aba1;
   }
 `;

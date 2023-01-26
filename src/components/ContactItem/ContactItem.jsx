@@ -8,7 +8,7 @@ import { selectContacts } from 'redux/contacts/contacts-selectors';
 import { useState } from 'react';
 import { UpdateForm } from 'components/UpdateForm/UpdateForm';
 
-export const ContactItem = ({ contact: { name, phone, id } }) => {
+export const ContactItem = ({ contact: { name, number, id } }) => {
   const dispatch = useDispatch();
   const [contactToUpdate, setContactToUpdate] = useState(null);
   const contacts = useSelector(selectContacts);
@@ -29,14 +29,14 @@ export const ContactItem = ({ contact: { name, phone, id } }) => {
           <Div>
             <Avatar
               name={name}
-              size="35"
+              size="38"
               round={true}
-              color="#bdd4f1"
-              fgColor="#252525"
+              color="#47aba1"
+              fgColor="#fff"
             />
           </Div>
           <PN>{name}</PN>
-          <P>{phone}</P>
+          <P>{number}</P>
           <Button
             onClick={() =>
               dispatch(deleteContact(id)) &
@@ -60,7 +60,7 @@ ContactItem.propTypes = {
     PropTypes.shape({
       id: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
-      phone: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
     }).isRequired
   ),
 };
