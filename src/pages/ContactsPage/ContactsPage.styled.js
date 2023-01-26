@@ -14,7 +14,7 @@ export const Container = styled.div`
   gap: 30px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   font-family: 'Readex Pro', sans-serif;
-  background: #45546b;
+  background: #fff;
   background-image: url(${img});
   border-radius: 8px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
