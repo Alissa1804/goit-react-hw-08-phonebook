@@ -1,9 +1,9 @@
 import { useSelector } from 'react-redux';
-import { selectToken } from 'redux/auth/auth-selectors';
+import { selectIsLoggedIn } from 'redux/auth/auth-selectors';
 import { Navlink, Ul } from './Navigation.styled';
 
 export const Navigation = () => {
-  const token = useSelector(selectToken);
+  const isLoggedIn = useSelector(selectIsLoggedIn);
 
   return (
     <nav>
@@ -11,9 +11,9 @@ export const Navigation = () => {
         <li>
           <Navlink to="/">Home</Navlink>
         </li>
-        {token && (
+        {isLoggedIn && (
           <li>
-            <Navlink to="contacts">Contacts</Navlink>
+            <Navlink to="/contacts">Contacts</Navlink>
           </li>
         )}
       </Ul>

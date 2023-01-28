@@ -7,6 +7,7 @@ const initialState = {
   isLoading: false,
   error: null,
   isFetchingCurrentUser: false,
+  isLoggedIn: false,
 };
 
 const authSlice = createSlice({
@@ -20,6 +21,7 @@ const authSlice = createSlice({
       .addCase(fetchCurrentUser.fulfilled, (state, { payload }) => {
         state.user = payload;
         state.isFetchingCurrentUser = false;
+        state.isLoggedIn = true;
       })
       .addCase(fetchCurrentUser.rejected, state => {
         state.isFetchingCurrentUser = false;
@@ -27,6 +29,17 @@ const authSlice = createSlice({
       .addCase(logout.fulfilled, state => {
         state.token = null;
         state.user = { name: '', email: '' };
+        state.isLoggedIn = false;
+      })
+      .addCase(register.fulfilled, (state, { payload: { user, token } }) => {
+        state.token = token;
+        state.user = user;
+        state.isLoggedIn = true;
+      })
+      .addCase(login.fulfilled, (state, { payload: { user, token } }) => {
+        state.token = token;
+        state.user = user;
+        state.isLoggedIn = true;
       })
       .addMatcher(
         isAnyOf(
@@ -49,13 +62,6 @@ const authSlice = createSlice({
         state => {
           state.isLoading = false;
           state.error = null;
-        }
-      )
-      .addMatcher(
-        isAnyOf(register.fulfilled, login.fulfilled),
-        (state, { payload: { user, token } }) => {
-          state.token = token;
-          state.user = user;
         }
       )
       .addMatcher(
